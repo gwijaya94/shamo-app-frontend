@@ -33,3 +33,6 @@ TextStyle priceTextStyle = GoogleFonts.poppins(
 TextStyle subtitleTextStyle = GoogleFonts.poppins(
   color: subtitleTextColor,
 );
+TextStyle purlpeTextStyle = GoogleFonts.poppins(
+  color: primaryColor,
+);

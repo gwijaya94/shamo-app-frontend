@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shamo_frontend/components/components.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
-class SignInPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -11,14 +13,14 @@ class SignInPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Login",
+              "Sign Up",
               style: headline5.copyWith(
                 fontWeight: semiBold,
               ),
             ),
             SizedBox(height: 2),
             Text(
-              "Sign In to Continue",
+              "Register and Happy Shoping",
               style: bodyText2.merge(
                 subtitleTextStyle,
               ),
@@ -33,13 +35,13 @@ class SignInPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Don't have an account? ",
+            "Already have an account? ",
             style: button,
           ),
           GestureDetector(
-            onTap: () => nextScreen(context, '/sign-up'),
+            onTap: () => prevScreen(context),
             child: Text(
-              "Sign Up",
+              "Sign In",
               style: button.merge(purlpeTextStyle),
             ),
           ),
@@ -52,7 +54,15 @@ class SignInPage extends StatelessWidget {
       body: CustomScrollViewComponent(
         children: [
           header(),
-          SizedBox(height: 70),
+          SizedBox(height: 50),
+          InputForm(
+            iconName: 'account-circle',
+            labelText: "Full Name",
+          ),
+          InputForm(
+            iconName: 'at',
+            labelText: "Username",
+          ),
           InputForm(
             iconName: 'email',
             labelText: "Email Address",

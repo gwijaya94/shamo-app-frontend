@@ -1,21 +1,27 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:shamo_frontend/utils/styling.dart';
 
-Widget myIcon({iconName = 'star', size = 24, color, onPressed}) {
+bool isAndroid = Platform.isAndroid;
+
+Widget myIcon({iconName, size, color, onPressed}) {
+  iconName = iconName ?? 'star';
   if (onPressed != null) {
     return IconButton(
       onPressed: onPressed,
       icon: Icon(
         MdiIcons.fromString(iconName),
-        size: size,
-        color: color,
+        size: size ?? 24,
+        color: color ?? primaryColor,
       ),
     );
   }
   return Icon(
     MdiIcons.fromString(iconName),
-    size: size,
-    color: color,
+    size: size ?? 24,
+    color: color ?? primaryColor,
   );
 }
 
