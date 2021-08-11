@@ -22,6 +22,12 @@ class HomePage extends StatelessWidget {
       {"id": '01'},
       {'id': '02'}
     ];
+    List<Map<String, dynamic>> newArrivalList = [
+      {"id": '01'},
+      {'id': '02'},
+      {'id': '02'},
+      {'id': '02'},
+    ];
 
     Widget header() {
       return Container(
@@ -121,6 +127,41 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget newArrivals() {
+      List<Widget> tempArrivalList = [];
+      for (int i = 0; i < newArrivalList.length; i++) {
+        Widget data = ProductTile();
+        tempArrivalList.add(data);
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: EdgeInsets.only(
+              top: 15,
+              bottom: 5,
+              left: defaultHPadding,
+              right: defaultHPadding,
+            ),
+            child: Text(
+              'New Arrival',
+              style: headline5.copyWith(fontWeight: semiBold),
+            ),
+          ),
+          SingleChildScrollView(
+            padding: EdgeInsets.only(
+              bottom: defaultHPadding - 2 * defaultGap,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: tempArrivalList,
+            ),
+          ),
+        ],
+      );
+    }
+
     return SafeArea(
       child: ListView(
         padding: EdgeInsets.symmetric(vertical: defaultVPadding),
@@ -130,6 +171,8 @@ class HomePage extends StatelessWidget {
           categories(),
           SizedBox(height: defaultMargin - 15),
           popularProducts(),
+          SizedBox(height: defaultMargin - 15),
+          newArrivals(),
         ],
       ),
     );

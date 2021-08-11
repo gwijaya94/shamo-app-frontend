@@ -35,6 +35,7 @@ class ProductCard extends StatelessWidget {
               fontWeight: semiBold,
             ),
           ),
+          SizedBox(height: 5),
           Text(price, style: subtitle2.merge(priceTextStyle)),
           SizedBox(height: 20),
         ],
