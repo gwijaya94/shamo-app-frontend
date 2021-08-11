@@ -68,7 +68,7 @@ class SignInPage extends StatelessWidget {
           Spacer(),
           ButtonComponent(
             buttonText: "Sign In",
-            onPressed: () => null,
+            onPressed: () => nextScreen(context, '/home'),
           ),
           SizedBox(height: 15),
           footer(),

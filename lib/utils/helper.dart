@@ -32,3 +32,15 @@ void nextScreen(BuildContext context, String routeName) {
 void prevScreen(BuildContext context) {
   Navigator.pop(context);
 }
+
+String numberPrettier(double value, [bool pricing = false]) {
+  String text = value
+      .toStringAsFixed(2)
+      .replaceAll(RegExp('/\B(?=(\d{3})+(?!\d))/g'), ',');
+
+  if (pricing == true) {
+    text = 'USD $text';
+  }
+
+  return text;
+}

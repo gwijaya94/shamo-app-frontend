@@ -7,6 +7,9 @@ Color parseColor(var hexColor) {
 }
 
 double defaultMargin = 30;
+double defaultVPadding = 20;
+double defaultHPadding = 16;
+double defaultGap = 5;
 
 Color primaryColor = Color(0xff6C5ECF);
 Color secondaryColor = Color(0xff38ABBE);
@@ -15,9 +18,13 @@ Color priceColor = Color(0xff2C96F1);
 Color bgColor1 = Color(0xff1F1D2B);
 Color bgColor2 = Color(0xff2B2937);
 Color bgColor3 = Color(0xff242231);
+Color bgColor4 = Color(0xff252836);
 Color primaryTextColor = Color(0xffF1F0F2);
 Color secondaryTextColor = Color(0xff999999);
 Color subtitleTextColor = Color(0xff504F5E);
+Color bottomIconColor = Color(0xff808191);
+Color transparentColor = Colors.transparent;
+Color prodCardColor = Color(0xffECEDEF);
 
 Color pureWhite = Color(0xFFFFFFFF);
 
