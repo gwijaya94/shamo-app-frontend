@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:shamo_frontend/components/components.dart';
 import 'package:shamo_frontend/modals/modals.dart';
 import 'package:shamo_frontend/pages/pages.dart';
 import 'package:shamo_frontend/utils/utils.dart';
@@ -96,12 +98,30 @@ class _MainPageState extends State<MainPage> {
       return bottomBarList[currentRoute].route;
     }
 
+    Widget appBar() {
+      if (currentRoute == 0 || currentRoute == 4) {
+        return null;
+      }
+      String title = 'Message Support';
+      if (currentRoute == 3) {
+        title = "Favorite Shoes";
+      }
+
+      return AppBar(
+        title: Text(title),
+        automaticallyImplyLeading: false,
+      );
+    }
+
     return Scaffold(
-      backgroundColor: bgColor1,
       floatingActionButton: cartFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: customBottomNav(),
-      body: body(),
+      appBar: appBar(),
+      body: StatusBarComponent(
+        statusbar: SystemUiOverlayStyle.light,
+        child: body(),
+      ),
     );
   }
 }

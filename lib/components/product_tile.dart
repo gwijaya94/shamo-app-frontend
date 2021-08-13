@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
 class ProductTile extends StatelessWidget {
-  const ProductTile({Key key}) : super(key: key);
+  const ProductTile({
+    Key key,
+    @required this.category,
+    @required this.productName,
+    @required this.price,
+  }) : super(key: key);
+
+  final String category, productName;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
-    String category = 'Hiking';
-    String itemName =
-        "COURT VISION 2.0 COURT VISION 2.0COURT VISION 2.0 COURT VISION 2.0";
-    String price = numberPrettier(20.30, true);
+    String pricing = numberPrettier(price, true);
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: defaultHPadding),
@@ -29,14 +34,14 @@ class ProductTile extends StatelessWidget {
               children: [
                 Text(category, style: subtitle2.merge(secondaryTextStyle)),
                 Text(
-                  itemName,
+                  productName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: subtitle1.copyWith(fontWeight: semiBold),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  price,
+                  pricing,
                   style: subtitle1
                       .merge(priceTextStyle)
                       .copyWith(fontWeight: medium),

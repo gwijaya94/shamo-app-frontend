@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key key}) : super(key: key);
+  const ProductCard({
+    Key key,
+    @required this.category,
+    @required this.productName,
+    @required this.price,
+  }) : super(key: key);
+
+  final String category, productName;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
-    String category = 'Hiking';
-    String itemName = "COURT VISION 2.0";
-    String price = numberPrettier(20.30, true);
+    String pricing = numberPrettier(20.30, true);
 
     return Container(
       width: 200,
@@ -27,7 +33,7 @@ class ProductCard extends StatelessWidget {
           ),
           Text(category, style: subtitle2.merge(secondaryTextStyle)),
           Text(
-            itemName,
+            productName,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: headline6.copyWith(
@@ -36,7 +42,7 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 5),
-          Text(price, style: subtitle2.merge(priceTextStyle)),
+          Text(pricing, style: subtitle2.merge(priceTextStyle)),
           SizedBox(height: 20),
         ],
       ),

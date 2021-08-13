@@ -100,7 +100,11 @@ class HomePage extends StatelessWidget {
     Widget popularProducts() {
       List<Widget> tempProdList = [];
       for (int i = 0; i < prodList.length; i++) {
-        Widget data = ProductCard();
+        Widget data = ProductCard(
+          category: 'Hiking',
+          productName: "COURT VISION 2.0 COURT VISION 2.0",
+          price: 20.30,
+        );
         tempProdList.add(data);
       }
 
@@ -130,7 +134,11 @@ class HomePage extends StatelessWidget {
     Widget newArrivals() {
       List<Widget> tempArrivalList = [];
       for (int i = 0; i < newArrivalList.length; i++) {
-        Widget data = ProductTile();
+        Widget data = ProductTile(
+          category: 'Hiking',
+          productName: "COURT VISION 2.0 COURT VISION 2.0",
+          price: 20.30,
+        );
         tempArrivalList.add(data);
       }
 
@@ -163,17 +171,20 @@ class HomePage extends StatelessWidget {
     }
 
     return SafeArea(
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: defaultVPadding),
-        children: [
-          header(),
-          SizedBox(height: defaultMargin),
-          categories(),
-          SizedBox(height: defaultMargin - 15),
-          popularProducts(),
-          SizedBox(height: defaultMargin - 15),
-          newArrivals(),
-        ],
+      child: Container(
+        color: bgColor1,
+        child: ListView(
+          padding: EdgeInsets.symmetric(vertical: defaultVPadding),
+          children: [
+            header(),
+            SizedBox(height: defaultMargin),
+            categories(),
+            SizedBox(height: defaultMargin - 15),
+            popularProducts(),
+            SizedBox(height: defaultMargin - 15),
+            newArrivals(),
+          ],
+        ),
       ),
     );
   }

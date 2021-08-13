@@ -13,7 +13,7 @@ class ButtonComponent extends StatelessWidget {
       onPressed: onPressed,
       child: Text(buttonText),
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         primary: primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),

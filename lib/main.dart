@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shamo_frontend/pages/pages.dart';
+import 'package:shamo_frontend/utils/utils.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +12,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        accentColor: primaryColor,
+        // buttonColor: primaryColor,
+        // scaffoldBackgroundColor: bgColor1,
+        scaffoldBackgroundColor: bgColor3,
+
+        appBarTheme: AppBarTheme(
+          backwardsCompatibility: false,
+          backgroundColor: bgColor1,
+          centerTitle: true,
+          titleTextStyle: headline6,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+          elevation: 0,
+        ),
+      ),
       routes: {
         '/': (context) => SplashPage(),
         '/sign-in': (context) => SignInPage(),
         '/sign-up': (context) => SignUpPage(),
         '/home': (context) => MainPage(),
+        '/detail-chat': (context) => DetailChatPage(),
       },
     );
   }

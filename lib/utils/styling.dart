@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Color parseColor(var hexColor) {
-  var intColor = '0xff' + hexColor;
-  return Color(int.parse(intColor));
-}
-
 double defaultMargin = 30;
 double defaultVPadding = 20;
 double defaultHPadding = 16;
@@ -25,6 +20,7 @@ Color subtitleTextColor = Color(0xff504F5E);
 Color bottomIconColor = Color(0xff808191);
 Color transparentColor = Colors.transparent;
 Color prodCardColor = Color(0xffECEDEF);
+Color onlineColor = Color(0xff51C17E);
 
 Color pureWhite = Color(0xFFFFFFFF);
 
@@ -42,4 +38,20 @@ TextStyle subtitleTextStyle = GoogleFonts.poppins(
 );
 TextStyle purlpeTextStyle = GoogleFonts.poppins(
   color: primaryColor,
+);
+
+TextStyle lightWeightStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w300,
+);
+TextStyle regularWeightStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w400,
+);
+TextStyle mediumWeightStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w500,
+);
+TextStyle semiBoldWeightStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w600,
+);
+TextStyle boldWeightStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w700,
 );

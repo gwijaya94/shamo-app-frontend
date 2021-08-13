@@ -1,17 +1,14 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shamo_frontend/utils/styling.dart';
 
-bool isAndroid = Platform.isAndroid;
-
-Widget myIcon({iconName, size, color, onPressed}) {
+Widget myIcon(
+    {String iconName, double size, Color color, Function() onPressed}) {
   iconName = iconName ?? 'star';
   if (onPressed != null) {
-    return IconButton(
-      onPressed: onPressed,
-      icon: Icon(
+    return GestureDetector(
+      onTap: onPressed,
+      child: Icon(
         MdiIcons.fromString(iconName),
         size: size ?? 24,
         color: color ?? primaryColor,

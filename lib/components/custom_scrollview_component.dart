@@ -18,7 +18,7 @@ class CustomScrollViewComponent extends StatelessWidget {
         double vPadding = verticalPadding ?? defaultMargin;
         double hPadding = horizontalPadding ?? defaultMargin;
         double minHeightBox = constraints.maxHeight - 2 * (vPadding);
-        minHeightBox = minHeightBox - (isAndroid ? 24 : 20);
+        minHeightBox = minHeightBox - statusBarHeight;
 
         return SafeArea(
           child: SingleChildScrollView(
