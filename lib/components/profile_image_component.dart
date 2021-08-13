@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shamo_frontend/utils/styling.dart';
+import 'package:shamo_frontend/utils/utils.dart';
 
 class ProfileImageComponent extends StatelessWidget {
   const ProfileImageComponent({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shamo_frontend/utils/styling.dart';
+import 'package:shamo_frontend/utils/utils.dart';
 
 TextStyle headline1 = GoogleFonts.poppins(
   fontSize: 93,

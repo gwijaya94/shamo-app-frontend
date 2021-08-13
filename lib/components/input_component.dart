@@ -25,8 +25,8 @@ class InputForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(labelText, style: subtitle1),
-          SizedBox(height: 12),
+          if (labelText != null) Text(labelText, style: subtitle1),
+          if (labelText != null) SizedBox(height: 12),
           TextField(
             onChanged: onChanged,
             obscureText: obscureText ?? false,
@@ -35,20 +35,6 @@ class InputForm extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: iconName != null ? myIcon(iconName: iconName) : null,
               contentPadding: EdgeInsets.symmetric(vertical: 15),
-              fillColor: bgColor2,
-              filled: true,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: bgColor2),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: primaryColor),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: alertColor),
-              ),
             ),
           ),
         ],

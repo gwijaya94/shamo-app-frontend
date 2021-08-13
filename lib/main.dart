@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shamo_frontend/pages/pages.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
@@ -17,15 +16,8 @@ class MyApp extends StatelessWidget {
         // buttonColor: primaryColor,
         // scaffoldBackgroundColor: bgColor1,
         scaffoldBackgroundColor: bgColor3,
-
-        appBarTheme: AppBarTheme(
-          backwardsCompatibility: false,
-          backgroundColor: bgColor1,
-          centerTitle: true,
-          titleTextStyle: headline6,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-          elevation: 0,
-        ),
+        inputDecorationTheme: inputTheme(),
+        appBarTheme: appbarTheme(),
       ),
       routes: {
         '/': (context) => SplashPage(),

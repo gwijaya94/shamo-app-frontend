@@ -9,14 +9,16 @@ class ChatTile extends StatelessWidget {
     this.message = '',
     @required this.shopName,
     this.time = 'Now',
+    this.onTap,
   }) : super(key: key);
 
   final String shopImage, shopName, message, time;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => nextScreen(context, '/detail-chat'),
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
