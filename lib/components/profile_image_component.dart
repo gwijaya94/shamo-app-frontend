@@ -9,11 +9,12 @@ class ProfileImageComponent extends StatelessWidget {
     this.isAsset = false,
     @required this.imgSource,
     this.onlineCheck = false,
+    this.isCircle = true,
   }) : super(key: key);
 
   final String imgSource;
   final double imgSize;
-  final bool isOnline, isAsset, onlineCheck;
+  final bool isOnline, isAsset, onlineCheck, isCircle;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +26,16 @@ class ProfileImageComponent extends StatelessWidget {
           width: imgSize,
           decoration: BoxDecoration(
             color: pureWhite,
-            shape: BoxShape.circle,
+            shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+            borderRadius: isCircle ? null : BorderRadius.circular(12),
           ),
         ),
         Container(
           height: imgSize,
           width: imgSize,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
+            shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+            borderRadius: isCircle ? null : BorderRadius.circular(12),
             image: DecorationImage(
               fit: BoxFit.cover,
               image: !isAsset ? NetworkImage(imgSource) : AssetImage(imgSource),

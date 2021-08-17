@@ -7,7 +7,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List chats = ["20", "30"];
+    List<String> chats = ["20", "30"];
 
     Widget emptyChat() {
       return Column(
@@ -19,6 +19,7 @@ class ChatPage extends StatelessWidget {
             color: secondaryColor,
             size: 96,
           ),
+          SizedBox(height: 15),
           Text(
             'Opss no message yet?',
             style: subtitle1.copyWith(fontWeight: medium),
@@ -52,6 +53,7 @@ class ChatPage extends StatelessWidget {
             shopName: "Nike Official Store",
             message: "Good night, Is this item still available for sale?",
             time: 'Now',
+            onTap: () => nextScreen(context, '/detail-chat'),
           ),
         );
       }
