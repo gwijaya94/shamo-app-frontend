@@ -5,6 +5,7 @@ import 'package:shamo_frontend/utils/utils.dart';
 InputDecorationTheme inputTheme() {
   return InputDecorationTheme(
     hintStyle: bodyText2.merge(subtitleTextStyle),
+    isDense: true,
     contentPadding: EdgeInsets.symmetric(
       vertical: 15,
       horizontal: 15,

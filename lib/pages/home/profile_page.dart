@@ -77,11 +77,12 @@ class ProfilePage extends StatelessWidget {
         List<Widget> tempSection = [];
         for (int i = 0; i < sectionSettings[sectionIndex].length; i++) {
           String data = sectionSettings[sectionIndex][i];
+          String route = 'edit-profile';
 
           tempSection.add(menuItem(
             iconColor: secondaryTextColor,
             item: data,
-            onTap: () {},
+            onTap: () => nextScreen(context, "/$route"),
           ));
           tempSection.add(SizedBox(height: 10));
         }

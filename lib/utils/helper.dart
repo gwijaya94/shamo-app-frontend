@@ -24,6 +24,10 @@ Widget myIcon(
   );
 }
 
+Size screenSize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
+
 void nextScreen(BuildContext context, String routeName) {
   Navigator.pushNamed(context, routeName);
 }

@@ -6,5 +6,6 @@ export 'input_component.dart';
 export 'product_card.dart';
 export 'product_tile.dart';
 export 'profile_image_component.dart';
+export 'profile_input_component.dart';
 export 'status_bar.dart';
 export 'wishlist_cart.dart';

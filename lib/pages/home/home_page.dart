@@ -104,6 +104,7 @@ class HomePage extends StatelessWidget {
           category: 'Hiking',
           productName: "COURT VISION 2.0 COURT VISION 2.0",
           price: 20.30,
+          onTap: () => nextScreen(context, '/product'),
         );
         tempProdList.add(data);
       }
@@ -138,6 +139,7 @@ class HomePage extends StatelessWidget {
           category: 'Hiking',
           productName: "COURT VISION 2.0 COURT VISION 2.0",
           price: 20.30,
+          onTap: () => nextScreen(context, '/product'),
         );
         tempArrivalList.add(data);
       }
