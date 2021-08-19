@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage> {
 
     Widget cartFab() {
       return FloatingActionButton(
-        onPressed: () => null,
+        onPressed: () => nextScreen(context, '/cart'),
         backgroundColor: secondaryColor,
         child: myIcon(iconName: 'shopping', color: pureWhite),
       );

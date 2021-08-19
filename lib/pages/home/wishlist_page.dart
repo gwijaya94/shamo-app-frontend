@@ -36,7 +36,7 @@ class WishlistPage extends StatelessWidget {
             alignment: Alignment.center,
             child: ButtonComponent(
               buttonText: "Explore Store",
-              onPressed: () => null,
+              onPressed: () => resetScreenUntil(context, '/home'),
             ),
           ),
         ],

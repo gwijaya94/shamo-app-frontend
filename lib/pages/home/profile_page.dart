@@ -120,7 +120,7 @@ class ProfilePage extends StatelessWidget {
               item: "Sign Out",
               textStyle: alertTextStyle,
               onTap: () {
-                signOut(context);
+                resetScreenUntil(context, "/sign-in");
               },
             ),
           ],

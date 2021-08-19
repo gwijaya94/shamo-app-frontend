@@ -10,11 +10,13 @@ class ProfileImageComponent extends StatelessWidget {
     @required this.imgSource,
     this.onlineCheck = false,
     this.isCircle = true,
+    this.margin,
   }) : super(key: key);
 
   final String imgSource;
   final double imgSize;
   final bool isOnline, isAsset, onlineCheck, isCircle;
+  final EdgeInsetsGeometry margin;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class ProfileImageComponent extends StatelessWidget {
         Container(
           height: imgSize,
           width: imgSize,
+          margin: margin,
           decoration: BoxDecoration(
             color: pureWhite,
             shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
@@ -33,6 +36,7 @@ class ProfileImageComponent extends StatelessWidget {
         Container(
           height: imgSize,
           width: imgSize,
+          margin: margin,
           decoration: BoxDecoration(
             shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
             borderRadius: isCircle ? null : BorderRadius.circular(12),

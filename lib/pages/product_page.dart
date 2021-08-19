@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shamo_frontend/components/components.dart';
 import 'package:shamo_frontend/components/status_bar.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
@@ -13,11 +14,26 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   List<String> carouselItem = [dummyShoes, dummyShoes, dummyShoes];
+  List<String> familiarShoes = [
+    dummyShoes,
+    dummyShoes,
+    dummyShoes,
+    dummyShoes,
+    dummyShoes,
+    dummyShoes,
+    dummyShoes
+  ];
   int currentIndex = 0;
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     Size mQuery = screenSize(context);
+    String itemName = "COURT VISION 2.0 COURT VISION 2.0";
+    String itemCategory = 'Hiking';
+    String pricing = numberPrettier(20.30, true);
+    String itemDesc =
+        "Unpaved trails and mixed surfaces are easy when you have the traction and support you need. Casual enough for the daily commute.";
 
     Widget carouselIndicator(int index) {
       bool isActive = currentIndex == index;
@@ -87,18 +103,167 @@ class _ProductPageState extends State<ProductPage> {
       );
     }
 
-    Widget content() {
+    Widget addCart() {
       return Container(
-        width: double.infinity,
+        height: 45,
         padding: EdgeInsets.symmetric(
           horizontal: defaultHPadding,
-          vertical: defaultVPadding,
         ),
+        child: Row(
+          children: [
+            Container(
+              width: 45,
+              height: 45,
+              decoration: BoxDecoration(
+                border: Border.all(width: 2, color: primaryColor),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: myIcon(iconName: 'chat', onPressed: () {}),
+            ),
+            SizedBox(width: 10),
+            Expanded(
+              child: ButtonComponent(
+                buttonText: "Add to Cart",
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget content() {
+      List<Widget> listFamiliarShoes = [];
+      for (int i = 0; i < familiarShoes.length; i++) {
+        listFamiliarShoes.add(GestureDetector(
+          onTap: () {},
+          child: ProfileImageComponent(
+            imgSource: familiarShoes[i],
+            isAsset: true,
+            isCircle: false,
+            imgSize: 70,
+            margin: EdgeInsets.symmetric(horizontal: 8),
+          ),
+        ));
+      }
+
+      return Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: defaultVPadding),
         decoration: BoxDecoration(
           color: bgColor1,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: defaultHPadding),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          itemName,
+                          style: headline6,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          itemCategory,
+                          style: subtitle1.merge(secondaryTextStyle),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: isFavorite ? secondaryColor : bottomIconColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: myIcon(
+                        iconName: 'heart',
+                        color: isFavorite ? pureWhite : bgColor1,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            // NOTE: pricing
+            Container(
+              padding: EdgeInsets.all(15),
+              margin: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: defaultHPadding,
+              ),
+              decoration: BoxDecoration(
+                color: bgColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Price starts from", style: subtitle1),
+                  Text(
+                    pricing,
+                    style: subtitle1
+                        .merge(priceTextStyle)
+                        .merge(semiBoldWeightStyle),
+                  ),
+                ],
+              ),
+            ),
+            // NOTE: Description
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: defaultHPadding,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Description",
+                    style: subtitle1.merge(mediumWeightStyle),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    itemDesc,
+                    style: subtitle1
+                        .merge(secondaryTextStyle)
+                        .merge(lightWeightStyle),
+                  ),
+                ],
+              ),
+            ),
+            // NOTE: Other Shoes
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: defaultHPadding,
+                vertical: 10,
+              ),
+              child: Text(
+                "Familiar Shoes",
+                style: subtitle1.merge(mediumWeightStyle),
+              ),
+            ),
+            SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: defaultHPadding - 8),
+              scrollDirection: Axis.horizontal,
+              child: Row(children: listFamiliarShoes),
+            ),
+            SizedBox(height: 20),
+            addCart()
+          ],
         ),
       );
     }
@@ -108,13 +273,15 @@ class _ProductPageState extends State<ProductPage> {
       backgroundColor: bgColor6,
       body: StatusBarComponent(
         statusbar: SystemUiOverlayStyle.dark,
-        child: SafeArea(
-          child: ListView(
-            children: [
-              header(),
-              content(),
-            ],
-          ),
+        child: CustomScrollViewComponent(
+          verticalPadding: 0,
+          horizontalPadding: 0,
+          children: [
+            header(),
+            Expanded(
+              child: content(),
+            ),
+          ],
         ),
       ),
     );

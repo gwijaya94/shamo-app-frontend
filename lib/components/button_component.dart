@@ -11,7 +11,7 @@ class ButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(buttonText),
+      child: Text(buttonText, style: subtitle2),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         primary: primaryColor,

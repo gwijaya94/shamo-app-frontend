@@ -36,8 +36,8 @@ void prevScreen(BuildContext context) {
   Navigator.pop(context);
 }
 
-void signOut(BuildContext context) {
-  Navigator.pushNamedAndRemoveUntil(context, "/sign-in", (route) => false);
+void resetScreenUntil(BuildContext context, String routeName) {
+  Navigator.pushNamedAndRemoveUntil(context, routeName, (route) => false);
 }
 
 String numberPrettier(double value, [bool pricing = false]) {
