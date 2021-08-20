@@ -4,7 +4,9 @@ import 'package:shamo_frontend/utils/utils.dart';
 class ButtonComponent extends StatelessWidget {
   final String buttonText;
   final Function() onPressed;
-  const ButtonComponent({Key key, this.buttonText, this.onPressed})
+  final String buttonType;
+  const ButtonComponent(
+      {Key key, this.buttonText, this.onPressed, this.buttonType = 'primary'})
       : super(key: key);
 
   @override
@@ -14,7 +16,7 @@ class ButtonComponent extends StatelessWidget {
       child: Text(buttonText, style: subtitle2),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-        primary: primaryColor,
+        primary: buttonType != 'secondary' ? primaryColor : bgColor2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

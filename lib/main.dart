@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/edit-profile': (context) => EditProfile(),
         '/product': (context) => ProductPage(),
         '/cart': (context) => CartPage(),
+        '/checkout': (context) => CheckoutPage(),
+        '/checkout-success': (context) => SuccessCheckoutPage(),
       },
     );
   }

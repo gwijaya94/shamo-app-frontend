@@ -2,6 +2,7 @@ export 'button_component.dart';
 export 'cart_card.dart';
 export 'chat_buble_component.dart';
 export 'chat_tile.dart';
+export 'checkout_item_card.dart';
 export 'custom_scrollview_component.dart';
 export 'icon_component.dart';
 export 'input_component.dart';

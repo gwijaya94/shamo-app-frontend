@@ -8,6 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List cartItems = [20, 39];
+    String totalPrice = numberPrettier(300, true);
 
     Widget appBar() {
       return AppBar(
@@ -56,7 +57,7 @@ class CartPage extends StatelessWidget {
           bottom: 15,
         ),
         itemBuilder: (context, index) {
-          int data = index;
+          // int data = index;
           return CartCard(
             itemUrl:
                 'https://cdn.iconscout.com/icon/free/png-256/nike-3215456-2673874.png',
@@ -67,7 +68,8 @@ class CartPage extends StatelessWidget {
       );
     }
 
-    Widget customNavBar() {
+    Widget customNavBar({Function() onPressed}) {
+      onPressed = onPressed ?? () {};
       return LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -82,40 +84,46 @@ class CartPage extends StatelessWidget {
                 defaultHPadding,
                 defaultVPadding,
               ),
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 15,
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 color: bgColor2,
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Total Price",
-                        style: subtitle1.merge(mediumWeightStyle),
-                      ),
-                    ],
+              child: ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                  primary: bgColor2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                  Spacer(),
-                  Text(
-                    numberPrettier(300, true),
-                    style: subtitle1
-                        .merge(priceTextStyle)
-                        .merge(semiBoldWeightStyle),
-                  ),
-                  IconComponent(
-                    margin: EdgeInsets.only(left: 10),
-                    iconName: isAndroid ? 'arrow-right' : 'chevron-right',
-                    iconColor: priceColor,
-                    size: 18,
-                  )
-                ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Total Price",
+                          style: subtitle1.merge(mediumWeightStyle),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Text(
+                      totalPrice,
+                      style: subtitle1
+                          .merge(priceTextStyle)
+                          .merge(semiBoldWeightStyle),
+                    ),
+                    IconComponent(
+                      margin: EdgeInsets.only(left: 10),
+                      iconName: isAndroid ? 'arrow-right' : 'chevron-right',
+                      iconColor: priceColor,
+                      size: 18,
+                    )
+                  ],
+                ),
               ),
             ),
           );
@@ -125,7 +133,9 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       appBar: appBar(),
-      bottomNavigationBar: (cartItems.length > 0) ? customNavBar() : null,
+      bottomNavigationBar: (cartItems.length < 1)
+          ? null
+          : customNavBar(onPressed: () => nextScreen(context, '/checkout')),
       body: SafeArea(
         child: (cartItems.length > 0) ? content() : emptyCart(),
       ),
