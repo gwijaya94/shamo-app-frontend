@@ -3,9 +3,10 @@ Source Course: [here](https://buildwithangga.com/kelas/full-stack-laravel-flutte
 
 UI kit can be found on [UI_kit branch](https://github.com/gwijaya94/shamo-app-frontend/tree/ui_kit)
 
+Download APK [here](https://github.com/gwijaya94/shamo-app-frontend/blob/ui_kit/archive/ui-kit.apk)
+
 ![App UI Preview](https://github.com/gwijaya94/shamo-app-frontend/blob/ui_kit/archive/Cover.png)
 
-Project will be integrated with BackEnd later on master branch.
 
 <!-- # shamo_frontend
 
