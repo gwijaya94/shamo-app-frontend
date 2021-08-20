@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage> {
       return FloatingActionButton(
         onPressed: () => nextScreen(context, '/cart'),
         backgroundColor: secondaryColor,
-        child: myIcon(iconName: 'shopping', color: pureWhite),
+        child: IconComponent(iconName: 'shopping', color: pureWhite),
       );
     }
 
@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
         for (int i = 0; i < bottomBarList.length; i++) {
           tempList.add(
             BottomNavigationBarItem(
-              icon: myIcon(
+              icon: IconComponent(
                 iconName: bottomBarList[i].iconName,
                 color: currentRoute == i ? primaryColor : bottomIconColor,
               ),
@@ -81,8 +81,9 @@ class _MainPageState extends State<MainPage> {
             type: BottomNavigationBarType.fixed,
             backgroundColor: bgColor4,
             currentIndex: currentRoute,
+            enableFeedback: false,
             onTap: (value) => setState(() {
-              if (value != 2) {
+              if (bottomBarList[value].iconName != 'blank') {
                 return currentRoute = value;
               }
             }),

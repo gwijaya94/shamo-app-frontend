@@ -116,10 +116,12 @@ class DetailChatPage extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: primaryColor,
                 ),
-                child: myIcon(
+                child: IconComponent(
                   iconName: 'close',
-                  color: bgColor1,
                   size: 20,
+                  isFilled: true,
+                  isCircle: true,
+                  iconColor: bgColor1,
                   onPressed: () {},
                 ),
               ),
@@ -153,17 +155,15 @@ class DetailChatPage extends StatelessWidget {
                     decoration: InputDecoration(hintText: "Your message..."),
                   ),
                 ),
-                Container(
+                IconComponent(
+                  iconName: 'send',
+                  isFilled: true,
+                  padding: EdgeInsets.all(10),
                   margin: EdgeInsets.only(left: 10),
-                  decoration: BoxDecoration(
-                    color: secondaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: myIcon(
-                    iconName: 'send',
-                    color: pureWhite,
-                    onPressed: () {},
-                  ),
+                  size: 48,
+                  color: secondaryColor,
+                  iconSize: 24,
+                  onPressed: () {},
                 ),
               ],
             ),

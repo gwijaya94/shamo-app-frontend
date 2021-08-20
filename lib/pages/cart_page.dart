@@ -20,7 +20,7 @@ class CartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            myIcon(iconName: 'cart', size: 96, color: secondaryColor),
+            IconComponent(iconName: 'cart', size: 96, color: secondaryColor),
             SizedBox(height: 15),
             Text(
               'Opss! Your cart is empty',
@@ -47,29 +47,85 @@ class CartPage extends StatelessWidget {
     }
 
     Widget content() {
-      List<Widget> tempList = [];
-      for (int i = 0; i < cartItems.length; i++) {
-        tempList.add(WishlistCart(
-          itemUrl:
-              'https://cdn.iconscout.com/icon/free/png-256/nike-3215456-2673874.png',
-          itemName: 'Nike Air Series 2.0',
-          itemPrice: 20.39,
-        ));
-      }
-
-      return ListView(
+      return ListView.builder(
+        itemCount: cartItems.length,
         padding: EdgeInsets.only(
           left: defaultHPadding,
           right: defaultHPadding,
           top: 15,
           bottom: 15,
         ),
-        children: tempList,
+        itemBuilder: (context, index) {
+          int data = index;
+          return CartCard(
+            itemUrl:
+                'https://cdn.iconscout.com/icon/free/png-256/nike-3215456-2673874.png',
+            itemName: 'Nike Air Series 2.0',
+            itemPrice: 20.39,
+          );
+        },
+      );
+    }
+
+    Widget customNavBar() {
+      return LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: Container(
+              constraints: BoxConstraints(
+                minWidth: constraints.maxWidth,
+                minHeight: constraints.minHeight,
+              ),
+              margin: EdgeInsets.fromLTRB(
+                defaultHPadding,
+                0,
+                defaultHPadding,
+                defaultVPadding,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 15,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: bgColor2,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Total Price",
+                        style: subtitle1.merge(mediumWeightStyle),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  Text(
+                    numberPrettier(300, true),
+                    style: subtitle1
+                        .merge(priceTextStyle)
+                        .merge(semiBoldWeightStyle),
+                  ),
+                  IconComponent(
+                    margin: EdgeInsets.only(left: 10),
+                    iconName: isAndroid ? 'arrow-right' : 'chevron-right',
+                    iconColor: priceColor,
+                    size: 18,
+                  )
+                ],
+              ),
+            ),
+          );
+        },
       );
     }
 
     return Scaffold(
       appBar: appBar(),
+      bottomNavigationBar: (cartItems.length > 0) ? customNavBar() : null,
       body: SafeArea(
         child: (cartItems.length > 0) ? content() : emptyCart(),
       ),

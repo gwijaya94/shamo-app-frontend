@@ -10,13 +10,13 @@ class EditProfile extends StatelessWidget {
     Widget appBar() {
       return AppBar(
         title: Text("Edit Profile"),
-        leading: myIcon(
+        leading: IconComponent(
           iconName: 'close',
           color: pureWhite,
           onPressed: () => prevScreen(context),
         ),
         actions: [
-          myIcon(iconName: 'check', onPressed: () => null),
+          IconComponent(iconName: 'check', onPressed: () => null),
           SizedBox(width: defaultHPadding),
         ],
       );

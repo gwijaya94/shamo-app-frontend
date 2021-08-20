@@ -14,7 +14,7 @@ class ChatPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          myIcon(
+          IconComponent(
             iconName: 'face-agent',
             color: secondaryColor,
             size: 96,

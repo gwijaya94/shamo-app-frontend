@@ -86,9 +86,9 @@ class _ProductPageState extends State<ProductPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BackButton(color: primaryColor),
-                    myIcon(
+                    IconComponent(
                       iconName: 'cart',
-                      color: primaryColor,
+                      margin: EdgeInsets.symmetric(horizontal: defaultHPadding),
                       onPressed: () => null,
                     ),
                   ],
@@ -111,14 +111,17 @@ class _ProductPageState extends State<ProductPage> {
         ),
         child: Row(
           children: [
-            Container(
-              width: 45,
-              height: 45,
+            IconComponent(
+              size: 45,
+              iconSize: 24,
+              isFilled: true,
+              iconName: 'chat',
+              iconColor: primaryColor,
               decoration: BoxDecoration(
                 border: Border.all(width: 2, color: primaryColor),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: myIcon(iconName: 'chat', onPressed: () {}),
+              onPressed: () {},
             ),
             SizedBox(width: 10),
             Expanded(
@@ -179,20 +182,15 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   SizedBox(width: 10),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: isFavorite ? secondaryColor : bottomIconColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: myIcon(
-                        iconName: 'heart',
-                        color: isFavorite ? pureWhite : bgColor1,
-                      ),
-                    ),
+                  IconComponent(
+                    iconName: 'heart',
+                    size: 40,
+                    iconSize: 24,
+                    isFilled: true,
+                    isCircle: true,
+                    color: isFavorite ? secondaryColor : bottomIconColor,
+                    iconColor: isFavorite ? pureWhite : bgColor1,
+                    onPressed: () {},
                   ),
                 ],
               ),

@@ -1,28 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:shamo_frontend/utils/utils.dart';
-
-Widget myIcon(
-    {String iconName, double size, Color color, Function() onPressed}) {
-  iconName = iconName ?? 'star';
-  if (onPressed != null) {
-    return IconButton(
-      onPressed: onPressed,
-      splashRadius: 12,
-      padding: EdgeInsets.zero,
-      icon: Icon(
-        MdiIcons.fromString(iconName),
-        size: size ?? 24,
-        color: color ?? primaryColor,
-      ),
-    );
-  }
-  return Icon(
-    MdiIcons.fromString(iconName),
-    size: size ?? 24,
-    color: color ?? primaryColor,
-  );
-}
 
 Size screenSize(BuildContext context) {
   return MediaQuery.of(context).size;

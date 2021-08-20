@@ -14,7 +14,7 @@ class WishlistPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          myIcon(
+          IconComponent(
             iconName: 'heart',
             color: secondaryColor,
             size: 96,

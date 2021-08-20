@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo_frontend/components/components.dart';
 import 'package:shamo_frontend/utils/utils.dart';
 
 class InputForm extends StatelessWidget {
@@ -33,7 +34,8 @@ class InputForm extends StatelessWidget {
             style: subtitle1,
             keyboardType: keyboardType ?? TextInputType.text,
             decoration: InputDecoration(
-              prefixIcon: iconName != null ? myIcon(iconName: iconName) : null,
+              prefixIcon:
+                  iconName != null ? IconComponent(iconName: iconName) : null,
               contentPadding: EdgeInsets.symmetric(vertical: 15),
             ),
           ),

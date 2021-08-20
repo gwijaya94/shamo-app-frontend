@@ -63,11 +63,9 @@ class ProfilePage extends StatelessWidget {
           onTap: onTap,
           child: Row(
             children: [
-              // myIcon(iconName: 'chevron-right', color: pureWhite),
-              // SizedBox(width: 10),
               Text(item, style: bodyText1.merge(textStyle)),
               Spacer(),
-              myIcon(iconName: 'chevron-right', color: iconColor)
+              IconComponent(iconName: 'chevron-right', color: iconColor)
             ],
           ),
         );

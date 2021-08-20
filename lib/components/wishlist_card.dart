@@ -31,6 +31,7 @@ class WishlistCart extends StatelessWidget {
           ProfileImageComponent(
             imgSource: itemUrl,
             isCircle: false,
+            imgSize: 60,
           ),
           SizedBox(width: 15),
           Expanded(
@@ -51,19 +52,15 @@ class WishlistCart extends StatelessWidget {
             ),
           ),
           SizedBox(width: 15),
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: secondaryColor,
-            ),
-            child: myIcon(
-              iconName: 'heart',
-              color: pureWhite,
-              size: 18,
-              onPressed: () {},
-            ),
+          IconComponent(
+            iconName: 'heart',
+            isCircle: true,
+            isFilled: true,
+            size: 30,
+            iconSize: 18,
+            padding: EdgeInsets.all(0),
+            color: secondaryColor,
+            onPressed: () {},
           ),
         ],
       ),
