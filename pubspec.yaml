@@ -25,12 +25,23 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter:
     sdk: flutter
+  flutter_launcher_name: ^0.0.1
   google_fonts: ^1.1.2
   material_design_icons_flutter: ^4.0.5955
+  flutter_launcher_icons: ^0.8.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_launcher_name:
+  name: "Shamo E-Commerce App"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "archive/icon_app_android.png"
+  image_path_ios: "archive/icon_app_ios.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -44,6 +55,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - archive/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

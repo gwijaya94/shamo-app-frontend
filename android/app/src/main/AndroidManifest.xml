@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gwijaya94.shamo_frontend">
    <application
-        android:label="shamo_frontend"
+        android:label="Shamo E-Commerce App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
